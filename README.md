@@ -20,3 +20,7 @@ PhantomGrid analyzes suspicious cyber inputs, explains the risk, and generates s
 - LLM / AI agent
 - JSON or SQLite
 - GitHub
+
+## Live Demo
+
+https://phantomgrid-ipu65t3kjzgij3uujeqbse.streamlit.app/
