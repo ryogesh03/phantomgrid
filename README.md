@@ -1,6 +1,3 @@
-# phantomgrid
-AI-powered cyber deception agent for threat detection and safe decoy response generation.
-
 # PhantomGrid
 
 PhantomGrid is an AI-powered cyber deception agent built for the AMD Developer Hackathon.
